@@ -4,8 +4,8 @@ services:
   loki:
     image: grafana/loki:latest
     container_name: loki
-    expose:
-      - "3100"
+    ports:
+      - "3100:3100"
     networks:
       - loki
     volumes:
