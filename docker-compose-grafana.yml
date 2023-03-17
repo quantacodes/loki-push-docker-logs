@@ -8,6 +8,9 @@ services:
       - "3100"
     networks:
       - loki
+    volumes:
+    - ./loki-config/:/etc/loki/
+    command: -config.file=/etc/loki/local-config.yaml
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
@@ -31,3 +34,6 @@ services:
 networks:
   loki:
     external: true
+volumes:
+  loki-config:
+    driver: local
