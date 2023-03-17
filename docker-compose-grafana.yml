@@ -22,6 +22,8 @@ services:
       GF_LOG_FILTERS: rendering:debug
     networks:
       - loki
+    volumes:
+      - ./grafana-provisioning/:/etc/grafana/provisioning/datasources
   renderer:
     image: grafana/grafana-image-renderer:latest
     container_name: grafana-image-renderer
@@ -37,3 +39,6 @@ networks:
 volumes:
   loki-config:
     driver: local
+  grafana-provisioning:
+    driver: local
+  
